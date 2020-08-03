@@ -1,6 +1,8 @@
-sum3/service/interfaces/IInputResultMappingService.class
-sum3/service/interfaces/IResultService.class
-sum3/service/Find3Sum.class
 sum3/service/MapRequestToEntity.class
-sum3/service/InputResultMappingService.class
-sum3/service/ResultService.class
+sum3/service/Find3SumService.class
+sum3/service/Sum3InputService.class
+sum3/service/Sum3ResultService.class
+sum3/service/interfaces/ISum3ResultService.class
+sum3/service/interfaces/ISum3InputService.class
+sum3/service/Sum3RequestHistoryService.class
+sum3/service/interfaces/ISum3RequestHistoryService.class

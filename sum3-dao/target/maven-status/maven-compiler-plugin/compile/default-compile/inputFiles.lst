@@ -1,4 +1,6 @@
-/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/dao/entity/ResultEntity.java
-/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/repository/IResultRepository.java
-/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/repository/IInputResultMappingRepository.java
-/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/dao/entity/InputResultMappingEntity.java
+/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/repository/ISum3ResultRepository.java
+/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/dao/entity/InputDataEntity.java
+/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/repository/ISum3InputDataRepository.java
+/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/repository/ISum3RequestHistoryRepository.java
+/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/dao/entity/RequestHistoryEntity.java
+/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/dao/entity/ResultDataEntity.java

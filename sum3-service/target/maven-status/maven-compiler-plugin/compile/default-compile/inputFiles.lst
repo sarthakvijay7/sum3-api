@@ -1,6 +1,8 @@
-/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/interfaces/IInputResultMappingService.java
-/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/interfaces/IResultService.java
-/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/ResultService.java
-/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/Find3Sum.java
-/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/InputResultMappingService.java
+/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/interfaces/ISum3ResultService.java
+/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/Sum3ResultService.java
+/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/interfaces/ISum3RequestHistoryService.java
+/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/Sum3InputService.java
+/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/interfaces/ISum3InputService.java
+/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/Find3SumService.java
+/home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/Sum3RequestHistoryService.java
 /home/chaipoint/assignment/sum3-api/sum3-service/src/main/java/sum3/service/MapRequestToEntity.java

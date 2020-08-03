@@ -8,4 +8,6 @@ public interface IFind3Sum {
 
 	List<Long> find3NumbersSumEqualToGivenNumber(Sum3Request request);
 
+	void getHistoryById(Long id);
+
 }
