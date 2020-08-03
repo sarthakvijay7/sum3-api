@@ -1,11 +1,13 @@
 package sum3.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import sum3.dao.ISum3RequestHistoryRepository;
 import sum3.dao.entity.RequestHistoryEntity;
-import sum3.repository.ISum3RequestHistoryRepository;
 import sum3.service.interfaces.ISum3RequestHistoryService;
 
+@Service
 public class Sum3RequestHistoryService implements ISum3RequestHistoryService {
 
 	@Autowired
