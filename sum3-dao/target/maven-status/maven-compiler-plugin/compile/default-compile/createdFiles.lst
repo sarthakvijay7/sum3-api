@@ -1,0 +1,4 @@
+sum3/repository/IResultRepository.class
+sum3/repository/IInputResultMappingRepository.class
+sum3/dao/entity/ResultEntity.class
+sum3/dao/entity/InputResultMappingEntity.class

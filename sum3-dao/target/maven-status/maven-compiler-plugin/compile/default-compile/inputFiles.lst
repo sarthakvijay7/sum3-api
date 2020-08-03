@@ -1,0 +1,4 @@
+/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/dao/entity/ResultEntity.java
+/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/repository/IResultRepository.java
+/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/repository/IInputResultMappingRepository.java
+/home/chaipoint/assignment/sum3-api/sum3-dao/src/main/java/sum3/dao/entity/InputResultMappingEntity.java
