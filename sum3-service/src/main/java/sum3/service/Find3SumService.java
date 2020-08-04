@@ -99,7 +99,7 @@ public class Find3SumService implements IFind3SumService {
 			resultEntity = resultService.getResultDataByRequestHistoryId(requestHistoryEntity.getId());
 		} catch (Exception e) {
 			logger.error("Error occured in Find3SumService -> getHistoryById method", e);
-			response.setHistoryResponseStatus(e.getMessage());
+			response.setHistoryResponseStatus("Error while fetching details from the db");
 			return response;
 		}
 
