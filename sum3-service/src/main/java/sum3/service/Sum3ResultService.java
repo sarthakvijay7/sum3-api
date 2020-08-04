@@ -12,9 +12,13 @@ public class Sum3ResultService implements ISum3ResultService {
 
 	@Autowired
 	private ISum3ResultRepository resultRepository;
+	
+	// Logger logger = Logger.getLogger(getClass());
+
 
 	@Override
 	public ResultDataEntity createResult(ResultDataEntity resultEntity) {
+		//	logger.debug("Inside Sum3ResultService -> createResult method);
 
 		try {
 			return resultRepository.save(resultEntity);
@@ -26,6 +30,7 @@ public class Sum3ResultService implements ISum3ResultService {
 
 	@Override
 	public ResultDataEntity getResultDataByRequestHistoryId(Long requestHistoryId) {
+		//	logger.debug("Inside Sum3ResultService -> getResultDataByRequestHistoryId method);
 
 		try {
 			return resultRepository.getResultDataByRequestHistoryId(requestHistoryId);

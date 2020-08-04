@@ -12,9 +12,14 @@ public class Sum3RequestHistoryService implements ISum3RequestHistoryService {
 
 	@Autowired
 	ISum3RequestHistoryRepository sum3requestHistoryRepository;
+	
+	// Logger logger = Logger.getLogger(getClass());
+
 
 	@Override
 	public Long createRequestHistory(Long targetNumber) {
+		//	logger.debug("Inside Sum3RequestHistoryService -> createRequestHistory method);
+	
 		try {
 			RequestHistoryEntity requestHistoryEntity = sum3requestHistoryRepository
 					.save(MapRequestToEntity.mapToRequestHistoryEntity(targetNumber));
@@ -27,6 +32,8 @@ public class Sum3RequestHistoryService implements ISum3RequestHistoryService {
 
 	@Override
 	public RequestHistoryEntity getRequestHistoryById(Long id) {
+		//	logger.debug("Inside Sum3RequestHistoryService -> getRequestHistoryById method);
+
 		try {
 			return sum3requestHistoryRepository.getRequestHistoryById(id);
 		} catch (Exception e) {

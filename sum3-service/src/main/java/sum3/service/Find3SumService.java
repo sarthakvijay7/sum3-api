@@ -37,11 +37,12 @@ public class Find3SumService implements IFind3SumService {
 
 	@Override
 	public Sum3Response find3NumbersSumEqualToGivenNumber(Sum3Request request) {
+//		logger.debug("Inside Find3SumService -> find3NumbersSumEqualToGivenNumber method, importing for Sum3Request: "
+//				+ request);
 
 		Sum3Response response = new Sum3Response();
 
-		if(request.getTargetNumber()==null)
-		{
+		if (request.getTargetNumber() == null) {
 			response.setStatusResponse("target number is not valid");
 			return response;
 		}
@@ -113,8 +114,8 @@ public class Find3SumService implements IFind3SumService {
 				resultEntity, response);
 	}
 
-	public boolean calculateNumbersHavingSumEqualToTarger(List<Long> resultNumberList, List<Long> numberList, Long targetNumber)
-	{
+	public boolean calculateNumbersHavingSumEqualToTarger(List<Long> resultNumberList, List<Long> numberList,
+			Long targetNumber) {
 		Boolean numbersFound = false;
 		for (int i = 0; i < numberList.size() - 2; i++) {
 
@@ -130,9 +131,9 @@ public class Find3SumService implements IFind3SumService {
 				s.add(numberList.get(j));
 			}
 		}
-     
+
 		return numbersFound;
-		
+
 	}
-	
+
 }

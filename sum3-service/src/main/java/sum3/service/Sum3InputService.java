@@ -14,9 +14,13 @@ public class Sum3InputService implements ISum3InputService {
 
 	@Autowired
 	ISum3InputDataRepository inputDataRepository;
+	
+	// Logger logger = Logger.getLogger(getClass());
+
 
 	@Override
 	public List<InputDataEntity> createInput(List<Long> numberList, Long requestHistoryId) {
+	//	logger.debug("Inside Sum3InputService -> createInput method);
 		List<InputDataEntity> InputDataEntityList = MapRequestToEntity
 				.mapRequestParamToInputResultMappingEntity(numberList, requestHistoryId);
 		try {
@@ -29,6 +33,7 @@ public class Sum3InputService implements ISum3InputService {
 
 	@Override
 	public List<InputDataEntity> getInputDataByRequestHistoryId(Long requestHistoryId) {
+	//	logger.debug("Inside Sum3InputService -> getInputDataByRequestHistoryId method);
 
 		try {
 			return inputDataRepository.getInputDataByRequestHistoryId(requestHistoryId);
