@@ -127,9 +127,12 @@ public class Find3SumService implements IFind3SumService {
 					resultNumberList.add(numberList.get(j));
 					resultNumberList.add(present_sum - numberList.get(j));
 					numbersFound = true;
+					break;
 				}
 				s.add(numberList.get(j));
 			}
+			if(numbersFound)
+				break;
 		}
 
 		return numbersFound;

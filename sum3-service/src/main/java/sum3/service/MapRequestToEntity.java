@@ -48,6 +48,7 @@ public class MapRequestToEntity {
 		response.setResultFirst(resultEntity.getResultNumber1());
 		response.setResultSecond(resultEntity.getResultNumber2());
 		response.setResultThird(resultEntity.getResultNumber3());
+		response.setHistoryResponseStatus("true");
 		List<Long> requestNumberList = new ArrayList<>();
 		for(InputDataEntity inputNumber : inputDataEntityList)
 		{

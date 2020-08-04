@@ -19,7 +19,6 @@ public class Sum3RequestHistoryService implements ISum3RequestHistoryService {
 	@Override
 	public Long createRequestHistory(Long targetNumber) {
 		//	logger.debug("Inside Sum3RequestHistoryService -> createRequestHistory method);
-	
 		try {
 			RequestHistoryEntity requestHistoryEntity = sum3requestHistoryRepository
 					.save(MapRequestToEntity.mapToRequestHistoryEntity(targetNumber));

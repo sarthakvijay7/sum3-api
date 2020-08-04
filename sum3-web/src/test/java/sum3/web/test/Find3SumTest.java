@@ -2,6 +2,8 @@ package sum3.web.test;
 
 import static org.junit.Assert.assertTrue;
 
+import org.springframework.boot.test.context.SpringBootTest;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -9,10 +11,13 @@ import java.util.List;
 
 import org.junit.Test;
 
+import sum3.web.app.Sum3ApiApplication;
+
+@SpringBootTest(classes = Sum3ApiApplication.class)
 public class Find3SumTest {
 
 	@Test
-	void test3Sum() {
+	public void test3Sum() {
 		List<Long> numberList = new ArrayList<>(Arrays.asList(3l, 4l, 9l, 2l));
 		Long targetNumber = 16l;
 
