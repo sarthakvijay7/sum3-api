@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,12 +35,12 @@ public class Find3SumService implements IFind3SumService {
 	@Autowired
 	ISum3RequestHistoryService sum3requestHistoryService;
 
-	// Logger logger = Logger.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Override
 	public Sum3Response find3NumbersSumEqualToGivenNumber(Sum3Request request) {
-//		logger.debug("Inside Find3SumService -> find3NumbersSumEqualToGivenNumber method, importing for Sum3Request: "
-//				+ request);
+		logger.debug("Inside Find3SumService -> find3NumbersSumEqualToGivenNumber method, importing for Sum3Request: "
+				+ request);
 
 		Sum3Response response = new Sum3Response();
 
@@ -60,25 +62,18 @@ public class Find3SumService implements IFind3SumService {
 			response.setStatusResponse("There dont exist any combination which sums up equal to a target number");
 			return response;
 		}
-		Long requestHistoryId = sum3requestHistoryService.createRequestHistory(targetNumber);
+		try {
+			Long requestHistoryId = sum3requestHistoryService.createRequestHistory(targetNumber);
 
-		if (requestHistoryId.equals(-1l)) {
-			response.setStatusResponse("Error while saving details in request history db");
-			return response;
-		}
+			sum3InputService.createInput(numberList, requestHistoryId);
 
-		List<InputDataEntity> inputDataEntityList = sum3InputService.createInput(numberList, requestHistoryId);
-		if (inputDataEntityList == null || inputDataEntityList.size() < 1) {
-			response.setStatusResponse("Error while saving input details in input_data_log db");
-			return response;
-		}
+			ResultDataEntity resultEntity = MapRequestToEntity.mapOutputToResultEntity(resultNumberList.get(0),
+					resultNumberList.get(1), resultNumberList.get(2), requestHistoryId);
 
-		ResultDataEntity resultEntity = MapRequestToEntity.mapOutputToResultEntity(resultNumberList.get(0),
-				resultNumberList.get(1), resultNumberList.get(2), requestHistoryId);
-
-		ResultDataEntity resultEntityResponse = resultService.createResult(resultEntity);
-		if (resultEntityResponse == null) {
-			response.setStatusResponse("Error while saving result details in result_data_log db");
+			resultService.createResult(resultEntity);
+		} catch (Exception e) {
+			logger.error("Error occured in Find3SumService -> find3NumbersSumEqualToGivenNumber method", e);
+			response.setStatusResponse(e.getMessage());
 			return response;
 		}
 
@@ -89,27 +84,25 @@ public class Find3SumService implements IFind3SumService {
 
 	@Override
 	public HistoryResponse getHistoryById(Long id) {
-		RequestHistoryEntity requestHistoryEntity = sum3requestHistoryService.getRequestHistoryById(id);
+		logger.debug("Inside Find3SumService -> getHistoryById method, importing for Sum3Request: id"+ id);
+
 		HistoryResponse response = new HistoryResponse();
+		RequestHistoryEntity requestHistoryEntity = new RequestHistoryEntity();
+		List<InputDataEntity> inputDataEntityList = new ArrayList<InputDataEntity>();
+		ResultDataEntity resultEntity = new ResultDataEntity();
 
-		if (requestHistoryEntity == null) {
-			response.setHistoryResponseStatus("Error while fetching request details");
+		try {
+			requestHistoryEntity = sum3requestHistoryService.getRequestHistoryById(id);
+
+			inputDataEntityList = sum3InputService.getInputDataByRequestHistoryId(requestHistoryEntity.getId());
+
+			resultEntity = resultService.getResultDataByRequestHistoryId(requestHistoryEntity.getId());
+		} catch (Exception e) {
+			logger.error("Error occured in Find3SumService -> getHistoryById method", e);
+			response.setHistoryResponseStatus(e.getMessage());
 			return response;
 		}
 
-		List<InputDataEntity> inputDataEntityList = sum3InputService
-				.getInputDataByRequestHistoryId(requestHistoryEntity.getId());
-		if (inputDataEntityList == null) {
-
-			response.setHistoryResponseStatus("Error while fetching input details");
-			return response;
-		}
-
-		ResultDataEntity resultEntity = resultService.getResultDataByRequestHistoryId(requestHistoryEntity.getId());
-		if (resultEntity == null) {
-			response.setHistoryResponseStatus("Error while fetching result details");
-			return response;
-		}
 		return MapRequestToEntity.mapGetHistoryByIdEntityToHistoryResponse(requestHistoryEntity, inputDataEntityList,
 				resultEntity, response);
 	}
@@ -131,7 +124,7 @@ public class Find3SumService implements IFind3SumService {
 				}
 				s.add(numberList.get(j));
 			}
-			if(numbersFound)
+			if (numbersFound)
 				break;
 		}
 
