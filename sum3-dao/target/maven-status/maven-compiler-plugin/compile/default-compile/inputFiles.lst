@@ -1,6 +1,6 @@
+/home/chaipoint/eclipse-workspace/sum3-api/sum3-dao/src/main/java/sum3/dao/ISum3InputDataRepository.java
 /home/chaipoint/eclipse-workspace/sum3-api/sum3-dao/src/main/java/sum3/dao/entity/RequestHistoryEntity.java
-/home/chaipoint/eclipse-workspace/sum3-api/sum3-dao/src/main/java/sum3/repository/ISum3RequestHistoryRepository.java
-/home/chaipoint/eclipse-workspace/sum3-api/sum3-dao/src/main/java/sum3/repository/ISum3InputDataRepository.java
 /home/chaipoint/eclipse-workspace/sum3-api/sum3-dao/src/main/java/sum3/dao/entity/InputDataEntity.java
-/home/chaipoint/eclipse-workspace/sum3-api/sum3-dao/src/main/java/sum3/repository/ISum3ResultRepository.java
+/home/chaipoint/eclipse-workspace/sum3-api/sum3-dao/src/main/java/sum3/dao/ISum3RequestHistoryRepository.java
+/home/chaipoint/eclipse-workspace/sum3-api/sum3-dao/src/main/java/sum3/dao/ISum3ResultRepository.java
 /home/chaipoint/eclipse-workspace/sum3-api/sum3-dao/src/main/java/sum3/dao/entity/ResultDataEntity.java

@@ -16,14 +16,22 @@ public class Sum3ResultService implements ISum3ResultService {
 	@Override
 	public ResultDataEntity createResult(ResultDataEntity resultEntity) {
 
-		return resultRepository.save(resultEntity);
+		try {
+			return resultRepository.save(resultEntity);
+		} catch (Exception e) {
+			return null;
+		}
 
 	}
 
 	@Override
 	public ResultDataEntity getResultDataByRequestHistoryId(Long requestHistoryId) {
 
-		return resultRepository.getResultDataByRequestHistoryId(requestHistoryId);
+		try {
+			return resultRepository.getResultDataByRequestHistoryId(requestHistoryId);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 }

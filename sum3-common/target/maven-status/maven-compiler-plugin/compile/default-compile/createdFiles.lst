@@ -1,2 +1,4 @@
+sum3/common/interfaces/IFind3SumService.class
+sum3/common/model/HistoryResponse.class
+sum3/common/model/Sum3Response.class
 sum3/common/model/Sum3Request.class
-sum3/common/interfaces/IFind3Sum.class

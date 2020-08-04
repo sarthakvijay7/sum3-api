@@ -10,21 +10,31 @@ import sum3.dao.entity.InputDataEntity;
 import sum3.service.interfaces.ISum3InputService;
 
 @Service
-public class Sum3InputService implements ISum3InputService{
+public class Sum3InputService implements ISum3InputService {
 
 	@Autowired
 	ISum3InputDataRepository inputDataRepository;
-	
+
 	@Override
 	public List<InputDataEntity> createInput(List<Long> numberList, Long requestHistoryId) {
-		List<InputDataEntity> InputDataEntityList=MapRequestToEntity.mapRequestParamToInputResultMappingEntity(numberList, requestHistoryId);
-	    return (List<InputDataEntity>) inputDataRepository.saveAll(InputDataEntityList);
-		
+		List<InputDataEntity> InputDataEntityList = MapRequestToEntity
+				.mapRequestParamToInputResultMappingEntity(numberList, requestHistoryId);
+		try {
+			return (List<InputDataEntity>) inputDataRepository.saveAll(InputDataEntityList);
+		} catch (Exception e) {
+			return null;
+		}
+
 	}
 
 	@Override
 	public List<InputDataEntity> getInputDataByRequestHistoryId(Long requestHistoryId) {
-    return inputDataRepository.getInputDataByRequestHistoryId(requestHistoryId);
+
+		try {
+			return inputDataRepository.getInputDataByRequestHistoryId(requestHistoryId);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 }

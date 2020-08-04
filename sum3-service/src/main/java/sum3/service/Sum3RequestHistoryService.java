@@ -14,14 +14,23 @@ public class Sum3RequestHistoryService implements ISum3RequestHistoryService {
 	ISum3RequestHistoryRepository sum3requestHistoryRepository;
 
 	@Override
-	public Long createRequestHistory(Long targetNumber)
-	{
-		RequestHistoryEntity requestHistoryEntity=sum3requestHistoryRepository.save(MapRequestToEntity.mapToRequestHistoryEntity(targetNumber));
-        return requestHistoryEntity.getId();
+	public Long createRequestHistory(Long targetNumber) {
+		try {
+			RequestHistoryEntity requestHistoryEntity = sum3requestHistoryRepository
+					.save(MapRequestToEntity.mapToRequestHistoryEntity(targetNumber));
+			return requestHistoryEntity.getId();
+		} catch (Exception e) {
+			return -1l;
+
+		}
 	}
 
 	@Override
 	public RequestHistoryEntity getRequestHistoryById(Long id) {
-		return sum3requestHistoryRepository.getRequestHistoryById(id);
+		try {
+			return sum3requestHistoryRepository.getRequestHistoryById(id);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 }

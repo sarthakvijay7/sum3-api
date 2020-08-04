@@ -9,17 +9,20 @@ public class HistoryResponse implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Override
-	public String toString() {
-		return "HistoryResponse [requestNumberList=" + requestNumberList + ", targetNumber=" + targetNumber
-				+ ", resultFirst=" + resultFirst + ", resultSecond=" + resultSecond + ", resultThird=" + resultThird
-				+ "]";
-	}
+	
 	List<Long> requestNumberList;
 	private Long targetNumber;
 	private Long resultFirst;
 	private Long resultSecond;
 	private Long resultThird;
+	private String historyResponseStatus;
+	
+	public String getHistoryResponseStatus() {
+		return historyResponseStatus;
+	}
+	public void setHistoryResponseStatus(String historyResponseStatus) {
+		this.historyResponseStatus = historyResponseStatus;
+	}
 	public List<Long> getRequestNumberList() {
 		return requestNumberList;
 	}
@@ -49,6 +52,13 @@ public class HistoryResponse implements Serializable{
 	}
 	public void setResultThird(Long resultThird) {
 		this.resultThird = resultThird;
+	}
+	
+	@Override
+	public String toString() {
+		return "HistoryResponse [requestNumberList=" + requestNumberList + ", targetNumber=" + targetNumber
+				+ ", resultFirst=" + resultFirst + ", resultSecond=" + resultSecond + ", resultThird=" + resultThird
+				+ ", historyResponseStatus=" + historyResponseStatus + "]";
 	}
 
 	

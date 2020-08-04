@@ -42,9 +42,8 @@ public class MapRequestToEntity {
 	}
 
 	public static HistoryResponse mapGetHistoryByIdEntityToHistoryResponse(RequestHistoryEntity requestHistoryEntity,
-			List<InputDataEntity> inputDataEntityList, ResultDataEntity resultEntity) {
+			List<InputDataEntity> inputDataEntityList, ResultDataEntity resultEntity, HistoryResponse response) {
 
-		HistoryResponse response =new HistoryResponse();
 		response.setTargetNumber(requestHistoryEntity.getTargetNumber());
 		response.setResultFirst(resultEntity.getResultNumber1());
 		response.setResultSecond(resultEntity.getResultNumber2());

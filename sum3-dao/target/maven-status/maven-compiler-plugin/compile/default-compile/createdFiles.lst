@@ -1,6 +1,6 @@
-sum3/repository/ISum3RequestHistoryRepository.class
-sum3/repository/ISum3InputDataRepository.class
+sum3/dao/ISum3RequestHistoryRepository.class
 sum3/dao/entity/RequestHistoryEntity.class
+sum3/dao/ISum3ResultRepository.class
 sum3/dao/entity/ResultDataEntity.class
-sum3/repository/ISum3ResultRepository.class
+sum3/dao/ISum3InputDataRepository.class
 sum3/dao/entity/InputDataEntity.class

@@ -1,2 +1,4 @@
-/home/chaipoint/eclipse-workspace/sum3-api/sum3-common/src/main/java/sum3/common/interfaces/IFind3Sum.java
+/home/chaipoint/eclipse-workspace/sum3-api/sum3-common/src/main/java/sum3/common/model/HistoryResponse.java
+/home/chaipoint/eclipse-workspace/sum3-api/sum3-common/src/main/java/sum3/common/model/Sum3Response.java
+/home/chaipoint/eclipse-workspace/sum3-api/sum3-common/src/main/java/sum3/common/interfaces/IFind3SumService.java
 /home/chaipoint/eclipse-workspace/sum3-api/sum3-common/src/main/java/sum3/common/model/Sum3Request.java
