@@ -40,6 +40,11 @@ public class Find3SumService implements IFind3SumService {
 
 		Sum3Response response = new Sum3Response();
 
+		if(request.getTargetNumber()==null)
+		{
+			response.setStatusResponse("target number is not valid");
+			return response;
+		}
 		if (request.getNumbersList().size() < 3) {
 			response.setStatusResponse("The size of the input list of number is not sufficient");
 			return response;
@@ -48,21 +53,8 @@ public class Find3SumService implements IFind3SumService {
 		List<Long> resultNumberList = new ArrayList<>();
 		List<Long> numberList = request.getNumbersList();
 		Long targetNumber = request.getTargetNumber();
-		Boolean numbersFound = false;
-		for (int i = 0; i < numberList.size() - 2; i++) {
+		Boolean numbersFound = calculateNumbersHavingSumEqualToTarger(resultNumberList, numberList, targetNumber);
 
-			HashSet<Long> s = new HashSet<>();
-			Long curr_sum = targetNumber - numberList.get(i);
-			for (int j = i + 1; j < numberList.size(); j++) {
-				if (s.contains(curr_sum - numberList.get(j))) {
-					resultNumberList.add(numberList.get(i));
-					resultNumberList.add(numberList.get(j));
-					resultNumberList.add(curr_sum - numberList.get(j));
-					numbersFound = true;
-				}
-				s.add(numberList.get(j));
-			}
-		}
 		if (!numbersFound) {
 			response.setStatusResponse("There dont exist any combination which sums up equal to a target number");
 			return response;
@@ -121,4 +113,26 @@ public class Find3SumService implements IFind3SumService {
 				resultEntity, response);
 	}
 
+	public boolean calculateNumbersHavingSumEqualToTarger(List<Long> resultNumberList, List<Long> numberList, Long targetNumber)
+	{
+		Boolean numbersFound = false;
+		for (int i = 0; i < numberList.size() - 2; i++) {
+
+			HashSet<Long> s = new HashSet<>();
+			Long present_sum = targetNumber - numberList.get(i);
+			for (int j = i + 1; j < numberList.size(); j++) {
+				if (s.contains(present_sum - numberList.get(j))) {
+					resultNumberList.add(numberList.get(i));
+					resultNumberList.add(numberList.get(j));
+					resultNumberList.add(present_sum - numberList.get(j));
+					numbersFound = true;
+				}
+				s.add(numberList.get(j));
+			}
+		}
+     
+		return numbersFound;
+		
+	}
+	
 }
